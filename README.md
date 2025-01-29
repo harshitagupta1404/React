@@ -1,1 +1,1 @@
-Learn React
+Learn React with Akshay Saini (Namaste React)
