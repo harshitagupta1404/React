@@ -21,6 +21,27 @@ not using keys (not acceptable) <<<< index as key <<<<< unique id (best practice
 
 EXPORTS - in 1 file we can have only 1 default export. If we want to export multiple things from a file, we can use Named exports (just add export in from of that).
 
-HOOKS - Normal JS utility functions
- - useState() - Super powerful state variables. Whenever a state variable changes, React rerenders the entire component.
- - useEffect() - If you wnt to do something after component render cycle is completed, you can do in useEffect.
+<b>HOOKS</b> - Normal JS utility functions
+ <b>- useState() -</b> 
+     a. Super powerful state variables. Whenever a state variable changes, React rerenders the entire component.
+     b. Used to create local state variable inside a functional components.
+     c. Always call this inside functional component and try to mention them on top of the file.
+     d. Never create useState hook inside an if else/for loop/functions. This will create inconsistencies.
+ <b>- useEffect() -</b>
+     a. If you want to do something after component render cycle is completed, you can do in useEffect.
+     b. This is called everytime after component is rendered.
+     c. Refer to 'Header' useEffect for some important concepts of useEffect.
+
+<b>REACT FIBRE</b> - new reconciliation/rerender process to efficiently manipulate the DOM.
+
+ <b>WHY REACT IS FAST</b> - The new reconciliation process which finds out the difference between 2 virtual DOMs and updates only the portion of DOM which is required.
+
+ <b>createBrowserRouter</b> creates a routing configuration for us.
+ <b>RouterProvider</b> will provide the routing configuration to our app.
+
+ rafce (React Arrow Function Component Export) - type this inside a file to generate code for the component.
+
+ <b>useRouteError (provided by react-router-dom) </b>- gives more info about the error
+ Outlet - used to display different child comopnents based on the matched routes.
+ **** Never use <a> tag in React. As it refreshes the entire page. 
+ Instead use <Link> component from react-router-dom  

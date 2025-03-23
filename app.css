@@ -50,11 +50,15 @@
     flex-wrap: wrap;
 }
 
-.filter-btn{
+.filter-btn, .search{
     margin:10px;
     cursor:pointer
 }
 
 .login{
     margin: 0 10px;
+}
+
+.filter{
+    display: flex;
 }

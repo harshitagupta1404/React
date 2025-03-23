@@ -5,11 +5,14 @@ import Shimmer from "./Shimmer";
 
 const BodyComponent = () => {
     // Below is array destructuring
-    let [listOfRestaurants, setTopRestaurants] = useState([]);
+    let [listOfRestaurants, setListOfRestaurants] = useState([]);
+    let [searchText, updateSearchText] = useState('');
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     useEffect(()=>{
         // fetchData();
-        console.log('useEffect called');
-        setTopRestaurants(resList);
+        console.log('Body useEffect called');
+        setListOfRestaurants(resList);
+        setFilteredRestaurants(resList);
     },[]);
 
     const fetchData = async() => {
@@ -22,15 +25,32 @@ const BodyComponent = () => {
     return listOfRestaurants.length===0 ? <Shimmer/> : (
         <div className="body">
             <div className="filter">
+                <div className="search">
+                    <input type="text" className="search-box" value={searchText} onChange = {(e) => {
+                        updateSearchText(e.target.value);
+                    }}/>
+                    <button onClick={() => {
+                        console.log(`searchText = ${searchText}`);
+                        const filteredRestaurants = listOfRestaurants.filter((res)=>{
+                            // console.log(res.info.name);
+                            console.log(res.info.name);
+                            console.log(res.info.name.includes(searchText));
+                            return res.info.name.toLowerCase().includes(searchText.toLowerCase())?res:undefined;
+                            
+                        })
+                        console.log(filteredRestaurants);
+                        setFilteredRestaurants(filteredRestaurants);
+                    }}>Search</button>
+                </div>
                 <button className='filter-btn' onClick={()=>{
                     console.log(listOfRestaurants);
                     const topRestaurants = listOfRestaurants.filter(topRes => topRes.info.rating.aggregate_rating>4)
                     console.log(topRestaurants);
-                    setTopRestaurants(topRestaurants);
+                    setFilteredRestaurants(topRestaurants);
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="res-container">
-                {listOfRestaurants.map(restaurant => <RestaurantCard key={restaurant.info.resId} resData={restaurant}/>)}
+                {filteredRestaurants.map(restaurant => <RestaurantCard key={restaurant.info.resId} resData={restaurant}/>)}
                 {/* <RestaurantCard resData = {resList[1]}/> */}
             </div>
         </div>
