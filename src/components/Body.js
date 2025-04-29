@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { resList } from "../common/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from 'react-router-dom'
 
 const BodyComponent = () => {
     // Below is array destructuring
@@ -50,7 +51,11 @@ const BodyComponent = () => {
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="res-container">
-                {filteredRestaurants.map(restaurant => <RestaurantCard key={restaurant.info.resId} resData={restaurant}/>)}
+                {filteredRestaurants.map(restaurant => (
+                     <Link key={restaurant.info.resId} to={"/restaurant/"+restaurant.info.resId}>
+                        <RestaurantCard resData={restaurant}/>
+                    </Link>)
+                )}
                 {/* <RestaurantCard resData = {resList[1]}/> */}
             </div>
         </div>

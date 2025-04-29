@@ -42,6 +42,11 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
  rafce (React Arrow Function Component Export) - type this inside a file to generate code for the component.
 
  <b>useRouteError (provided by react-router-dom) </b>- gives more info about the error
- Outlet - used to display different child comopnents based on the matched routes.
+ <b>Outlet </b>- used to display different child components based on the matched routes.
  **** Never use <a> tag in React. As it refreshes the entire page. 
  Instead use <Link> component from react-router-dom  
+ <b>useParams (provided by react-router-dom)</b> - allows us to access dynamic params in the URL. 
+
+ # 2 types of rounting
+ - Server side routing - Sends a network call to fetch the html page and reloads the whole page to render it. 
+ - Client side routing - It doen't fetches any page. Just component renders
