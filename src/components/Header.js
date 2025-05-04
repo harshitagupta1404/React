@@ -10,6 +10,11 @@ const Header = () => {
   // if dependency array is some value Eg - [btnName] => called everytime btnName is updated
   useEffect(()=>{
     console.log('Header useEffect called');
+
+    return () => {
+      // This will be called when component unmounts - Equivalent to componentWillUnmount
+      console.log('useEffect return');
+    }
   },[btnName])
 
     return (

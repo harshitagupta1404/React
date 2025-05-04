@@ -50,3 +50,6 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
  # 2 types of rounting
  - Server side routing - Sends a network call to fetch the html page and reloads the whole page to render it. 
  - Client side routing - It doen't fetches any page. Just component renders
+
+ Class component lifecycle - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+ Because 

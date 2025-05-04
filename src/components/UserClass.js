@@ -3,6 +3,7 @@ import React from 'react';
 class UserClass extends React.Component{
   constructor(props){
     super(props);
+    console.log(this.props.name+' constructor');
     console.log(props);
 
     // All state variables
@@ -11,7 +12,12 @@ class UserClass extends React.Component{
       count2:2
     }
   }
+
+  componentDidMount(){
+    console.log(this.props.name+' did mount')
+  }
     render(){
+      console.log(this.props.name+'render');
         return (
           <div className="user-card">
             <h2>{this.props.name}</h2>
