@@ -47,9 +47,15 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
  Instead use <Link> component from react-router-dom  
  <b>useParams (provided by react-router-dom)</b> - allows us to access dynamic params in the URL. 
 
- # 2 types of rounting
+ # 2 types of routing
  - Server side routing - Sends a network call to fetch the html page and reloads the whole page to render it. 
  - Client side routing - It doen't fetches any page. Just component renders
 
  Class component lifecycle - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
  Because 
+
+# Steps for React app
+1. npm install react, react-dom, parcel
+2. create an HTML file with div element and id 'root'.
+3. HTML should be pointing to js file using script tag
+4. JS file should render component
