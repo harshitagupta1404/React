@@ -59,3 +59,4 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
 2. create an HTML file with div element and id 'root'.
 3. HTML should be pointing to js file using script tag
 4. JS file should render component
+5. Add run commnad to package.json
