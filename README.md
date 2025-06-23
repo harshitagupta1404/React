@@ -60,3 +60,6 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
 3. HTML should be pointing to js file using script tag
 4. JS file should have a component which should be rendered using react dom.
 5. Add run commnad to package.json
+
+
+HIGHER ORDER COMPONENTS - They take a component and return a component. That component is an enhanced version of input component.
