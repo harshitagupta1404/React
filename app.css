@@ -62,3 +62,12 @@
 .filter{
     display: flex;
 }
+
+.promoted{
+    position: absolute;
+    color:white;
+    background-color: rgb(22, 22, 22);
+    border:solid rgba(117, 109, 109, 0.192);
+    padding:2px;
+    border-radius: 5px;
+}

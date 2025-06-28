@@ -7,7 +7,7 @@ const Error = () =>{
         <div className="error-component">
             <h1>Oops!</h1>
             <h2>Something went wrong</h2>
-            <h3>{err.status} : {err.statusText}</h3>
+            <h3>{err?.status} : {err?.statusText}</h3>
         </div>
     )
 }

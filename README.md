@@ -53,3 +53,7 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
 
  Class component lifecycle - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
  Because 
+
+ Custom hooks vs JS functions - Custom hooks means there should be some React logic hidden. This hook will have it's own state, lifecycle.
+
+ Higher Order Components - Function which takes a component and returns a component

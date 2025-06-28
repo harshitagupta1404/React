@@ -1,8 +1,9 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { resList } from "../common/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from 'react-router-dom'
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const BodyComponent = () => {
     // Below is array destructuring
@@ -22,6 +23,14 @@ const BodyComponent = () => {
         console.log(json);
     }
 
+    const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
+
+    if(!useOnlineStatus()){
+        console.log('no internet');
+        return (
+            <h1>Please check your internet connection!</h1>
+        )
+    }
     // Conditional Rendering
     return listOfRestaurants.length===0 ? <Shimmer/> : (
         <div className="body">
@@ -53,7 +62,7 @@ const BodyComponent = () => {
             <div className="res-container">
                 {filteredRestaurants.map(restaurant => (
                      <Link key={restaurant.info.resId} to={"/restaurant/"+restaurant.info.resId}>
-                        <RestaurantCard resData={restaurant}/>
+                        {restaurant.isPromoted ? <PromotedRestaurantCard resData={restaurant}/> : <RestaurantCard resData={restaurant}/>}
                     </Link>)
                 )}
                 {/* <RestaurantCard resData = {resList[1]}/> */}

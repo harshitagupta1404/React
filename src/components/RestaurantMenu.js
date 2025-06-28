@@ -1,34 +1,14 @@
-import { useEffect, useState } from "react";
-import { resList } from "../common/mockData";
 import Shimmer from "./Shimmer"
 import { useParams } from 'react-router-dom';
+import useRestaurantMenu from '../utils/useRestaurantMenu';
 
 const RestaurantMenu = () => {
-    let [resInfo, setInfoName] = useState(null);
-    useEffect(()=>{
-        fetchData();
-    },[])
+    
     const {resId} = useParams();
-    // console.log(resId);
-    resInfo = resList.filter(restaurant => {
-        // console.log(restaurant);
-        // console.log(`...${restaurant.info.resId}...., ${restaurant.info.resId==resId}`);
-        // restaurant.info.resId==resId?restaurant:'No restaurant found'
-        if(restaurant.info.resId==resId) return restaurant;
-    });
-    // console.log(`resInfo:${JSON.stringify(resInfo)}`);
-    // console.log(`resInfo length:${resInfo.length}`);
+    resInfo = useRestaurantMenu(resId);
     const cuisines = resInfo?.[0]?.info?.cuisine?.map((cuisine,index) => {
-        // console.log(index);
         return {[index]:cuisine.name}
     });
-    console.log(cuisines);
-
-    const fetchData = () => {
-        // let  
-        // console.log(resList);
-        setInfoName(resList);
-    }
 
     if(resInfo===null)
         return <Shimmer/>
