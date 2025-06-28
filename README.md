@@ -47,13 +47,44 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
  Instead use <Link> component from react-router-dom  
  <b>useParams (provided by react-router-dom)</b> - allows us to access dynamic params in the URL. 
 
- # 2 types of rounting
+ # 2 types of routing
  - Server side routing - Sends a network call to fetch the html page and reloads the whole page to render it. 
  - Client side routing - It doen't fetches any page. Just component renders
 
  Class component lifecycle - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
  Because 
 
+# Steps for React app
+1. npm install react, react-dom, parcel
+2. create an HTML file with div element and id 'root'.
+3. HTML should be pointing to js file using script tag
+4. JS file should have a component which should be rendered using react dom.
+5. Add run commnad to package.json
+
+
  Custom hooks vs JS functions - Custom hooks means there should be some React logic hidden. This hook will have it's own state, lifecycle.
 
- Higher Order Components - Function which takes a component and returns a component
+HIGHER ORDER COMPONENTS - They take a component and return a component. That component is an enhanced version of input component.
+-------------------------------------------
+CONTEXT API------we can get the data anywhere in our app
+1. Create Context  -
+   import { createContext } from 'react';
+
+const UserContext = createContext({
+    loggedInUser : "Default User",
+});
+
+export default UserContext;
+
+2. Use Context  -  useContext
+
+** In Class based components, we can't use hooks. Hence, we can't need to use context in a different way.
+<UserContext.Consumer>   // this has JSX which contains callback function
+ {({loggedInUser})=>{
+   console.log(loggedInUser);
+   return <div>{loggedInUser}</div>
+ }}
+</UserContext.Consumer>
+
+** We can set th scope of a Context by wrapping with Provider. Eg - <UserContext.Provider> </UserContext.Provider> (Here UserContext is the context name)
+We can override the value inside the context using <UserContext.Provider value = {<value>}>  </UserContext.Provider>
