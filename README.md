@@ -63,3 +63,23 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
 
 
 HIGHER ORDER COMPONENTS - They take a component and return a component. That component is an enhanced version of input component.
+-------------------------------------------
+CONTEXT API------we can get the data anywhere in our app
+1. Create Context  -
+   import { createContext } from 'react';
+
+const UserContext = createContext({
+    loggedInUser : "Default User",
+});
+
+export default UserContext;
+
+2. Use Context  -  useContext
+
+** In Class based components, we can't use hooks. Hence, we can't need to use context in a different way.
+<UserContext.Consumer>   // this has JSX which contains callback function
+ {({loggedInUser})=>{
+   console.log(loggedInUser);
+   return <div>{loggedInUser}</div>
+ }}
+</UserContext.Consumer>
