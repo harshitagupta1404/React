@@ -83,3 +83,6 @@ export default UserContext;
    return <div>{loggedInUser}</div>
  }}
 </UserContext.Consumer>
+
+** We can set th scope of a Context by wrapping with Provider. Eg - <UserContext.Provider> </UserContext.Provider> (Here UserContext is the context name)
+We can override the value inside the context using <UserContext.Provider value = {<value>}>  </UserContext.Provider>
