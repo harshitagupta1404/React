@@ -88,3 +88,17 @@ export default UserContext;
 
 ** We can set th scope of a Context by wrapping with Provider. Eg - <UserContext.Provider> </UserContext.Provider> (Here UserContext is the context name)
 We can override the value inside the context using <UserContext.Provider value = {<value>}>  </UserContext.Provider>
+
+------------------------------
+* React and Redux are 2 different libraries. Zustand is another state management library
+* Redux is a state management library which can be used with many other libraries and frameworks.
+* Any application can be built without Redux
+* Use Redux only for very large applications
+
+# Redux Toolkit
+1. Install @reduxjs/toolkit and react-redux
+2. Build a store
+3. Connect the store to our app
+4. Slice (Cart slice)
+5. Dispatch action
+6. Selector
