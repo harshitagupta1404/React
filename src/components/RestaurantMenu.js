@@ -1,6 +1,8 @@
 import Shimmer from "./Shimmer"
 import { useParams } from 'react-router-dom';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utils/cartSlice';
 
 const RestaurantMenu = () => {
     
@@ -9,6 +11,12 @@ const RestaurantMenu = () => {
     const cuisines = resInfo?.[0]?.info?.cuisine?.map((cuisine,index) => {
         return {[index]:cuisine.name}
     });
+
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+        dispatch(addItem(item));
+    }
 
     if(resInfo===null)
         return <Shimmer/>
@@ -29,8 +37,7 @@ const RestaurantMenu = () => {
                 <ul>
                     {cuisines?.map(cuisine => {
                         const[key,value]=Object.entries(cuisine)[0];
-                        // console.log(`${key}:${value}`);
-                        return <li key={key}>{value}</li>
+                        return <li key={key}>{value}   <button onClick={() => handleAddItem(cuisine)}>Add to Cart</button></li>
                     })}
                 </ul>
             </div>

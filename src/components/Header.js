@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -21,6 +22,13 @@ const Header = () => {
     }
   },[btnName])
 
+  // SUBSCRIBING TO THE STORE USING SELECTOR. Selector is a hook.
+  const cartItems = useSelector((store) => {
+    console.log(store.cart.items);
+    return store.cart.items
+  });
+
+
     return (
       <div className="header">
         <div className="logo-container">
@@ -35,6 +43,7 @@ const Header = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
+            <li><Link to="/cart">Cart {cartItems.length}</Link></li>
             <li><Link to="/grocery">Grocery</Link></li>
             <button className="login" onClick={()=>btnName === 'Login' ? updateBtnName("Logout") : updateBtnName("Login")}>{btnName}</button>
             <li>{loggedInUser}</li>

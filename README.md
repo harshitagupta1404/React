@@ -95,10 +95,54 @@ We can override the value inside the context using <UserContext.Provider value =
 * Any application can be built without Redux
 * Use Redux only for very large applications
 
-# Redux Toolkit
+# Redux Toolkit - uses Immer BTS - it says either mutate the state or return a new state
 1. Install @reduxjs/toolkit and react-redux
-2. Build a store
-3. Connect the store to our app
+2. Build a store (configureStore from @reduxjs/toolkit) - store has 1 big reducer
+3. Connect the store to our app (via react-redux) - wrap <Provider store={}> around the section of the app where you want to use the store
 4. Slice (Cart slice)
-5. Dispatch action
-6. Selector
+    a. Create a new file for slice. 
+    b. Give name, initialState, reducer functions and export (for default export, you export a 'reducer').
+    c. Add the reducer function to redux store file - a slice will have multiple reducers.
+5. Dispatch action - using a hook useDispatch - Refer RestaurantMenu component
+6. Selector - using useSelector - Refer Header Cart
+*** Always subscribe to a smaller and correct portion of the store or else it can be a big performance loss.
+
+* Redux Dev Tools extension used to debug redux extension
+
+
+# IMPORTANT CONCEPT for event calling
+onClick = {handleItem(item)} vs onClick = {() => handleItem(item)}
+
+onClick = {handleItem(item)}  ----  calls the function on render but not click. It will call the function on render and assigns its return value to onClick
+
+onClick = {() => handleItem(item)} -----   This creates a new function which will call handleItem only when clicked.
+
+Anonymous function needs to be created only if we have arguments. If you don't have arguments, then you can directly use onClick={handleItem}
+
+# 3 types of developer testing
+1. Unit testing
+2. Integration testing
+3. End to end testing (e2e)
+
+Library for testing
+1. React Testing Library - This needs Jest
+STEPS TO SETUP
+a. Install React Testing : npm i -D @testing-library/react
+b. Install jest : npm i -D jest
+c. Install babel dependencies : If you go to jest website, you'll get more dependencies to be installed based on your project.
+d. Configure babel : Follow the steps as needed in the doc.
+Now the babel that we installed as part of above steps will interfere with babel in parcel
+e. Configure Parcel config file to disable default babel transpilation
+https://parceljs.org/languages/javascript/#usage-with-other-tools - copy the config here
+f. Now run the cmd - npm run test to see if everything is WAI.
+g. Jest configuration : npx init jest@latest
+[TS - no, jsdom, babel]
+h. Install JSdom library : npm install --save-dev jest-environment-jsdom
+i. Install npm i -D @babel/preset-react to make JSX work in testcases
+j. Include babel-preset inside the babel config
+k. npm i -D @testing-library/jest-dom
+
+Writing a testcase
+1. Render something
+2. Query something
+3. Assert
