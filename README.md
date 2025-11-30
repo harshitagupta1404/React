@@ -146,3 +146,19 @@ Writing a testcase
 1. Render something
 2. Query something
 3. Assert
+
+**Ways to add CSS**
+These are CSS libraries and frameworks
+1. SCSS/SASS
+2. Styled components
+3. Material UI
+4. Bootstrap
+5. Chakra UI
+6. Ant Design
+7. Tailwind CSS
+
+**Tailwind CSS** - It has class name for every CSS that you can apply. VSCode extension - Tailwind CSS IntelliSense
+Eg - flex,
+w-25 (gives width to that tag),
+m-4 (gives margin), mb-2 (margin bottom), mx-2 (margin to horizontal axis -left and right)
+p-4 (gives padding)
