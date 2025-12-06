@@ -165,3 +165,8 @@ p-4 (gives padding),
 If you have to give a hardcoded value, then you can create a dynamic class using []. Eg - w-[200px]
 
 VS Code Extension for Tailwind - Tailwind CSS IntelliSense
+
+Cons of Tailwind - Less readable, comes with a learning curve
+Pros of Tailwind - quick, light weight (When parcel makes a bundle of application, Tailwind includes only the CSS that is required on the webpage. If m-4 is used in multiple times, Tailwind includes just 1 m-4 class).
+
+Refer to Header tailwind for some responsiveness based on screen size.
