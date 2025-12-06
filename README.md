@@ -161,4 +161,7 @@ These are CSS libraries and frameworks
 Eg - flex,
 w-25 (gives width to that tag),
 m-4 (gives margin), mb-2 (margin bottom), mx-2 (margin to horizontal axis -left and right)
-p-4 (gives padding)
+p-4 (gives padding),
+If you have to give a hardcoded value, then you can create a dynamic class using []. Eg - w-[200px]
+
+VS Code Extension for Tailwind - Tailwind CSS IntelliSense
