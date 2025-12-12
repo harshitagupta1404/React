@@ -170,3 +170,5 @@ Cons of Tailwind - Less readable, comes with a learning curve
 Pros of Tailwind - quick, light weight (When parcel makes a bundle of application, Tailwind includes only the CSS that is required on the webpage. If m-4 is used in multiple times, Tailwind includes just 1 m-4 class).
 
 Refer to Header tailwind for some responsiveness based on screen size.
+
+<b>NOTE</b> - If you have a very big form in your application, then consider using a library <b>Formik</b>
