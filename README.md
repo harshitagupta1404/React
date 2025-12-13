@@ -172,3 +172,7 @@ Pros of Tailwind - quick, light weight (When parcel makes a bundle of applicatio
 Refer to Header tailwind for some responsiveness based on screen size.
 
 <b>NOTE</b> - If you have a very big form in your application, then consider using a library <b>Formik</b>
+
+<b>useRef</b> is used to hold a mutable value that persists across renders and doesn't require a rerender. It returns a plain JavaScript object with a single, mutable property named '.current'. The object returned is mutable.
+const ref = useRef(initialValue)
+The implementation can be found in Netflix-GPT Login page
