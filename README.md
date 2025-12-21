@@ -18,6 +18,8 @@ Config Driven UI - controlling your UI using config. Eg - UI for food apps can b
 Keys are important in React, so that not all items have to be rerendered inside a container. It is used to uniquely identify the newly rendered item.
 NOTE - Never use index as key.
 not using keys (not acceptable) <<<< index as key <<<<< unique id (best practice)
+Keys are used for elements that are part of a list created using iteration (map, array, loops). It does not depend on HTM tag type, but on whether react is rendering multiple sibling elements dynamically. <br>
+* Keys are required only on top level elements returned inside a list.
 
 EXPORTS - in 1 file we can have only 1 default export. If we want to export multiple things from a file, we can use Named exports (just add export in from of that).
 
