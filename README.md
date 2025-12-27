@@ -18,6 +18,8 @@ Config Driven UI - controlling your UI using config. Eg - UI for food apps can b
 Keys are important in React, so that not all items have to be rerendered inside a container. It is used to uniquely identify the newly rendered item.
 NOTE - Never use index as key.
 not using keys (not acceptable) <<<< index as key <<<<< unique id (best practice)
+Keys are used for elements that are part of a list created using iteration (map, array, loops). It does not depend on HTM tag type, but on whether react is rendering multiple sibling elements dynamically. <br>
+* Keys are required only on top level elements returned inside a list.
 
 EXPORTS - in 1 file we can have only 1 default export. If we want to export multiple things from a file, we can use Named exports (just add export in from of that).
 
@@ -146,3 +148,33 @@ Writing a testcase
 1. Render something
 2. Query something
 3. Assert
+
+**Ways to add CSS**
+These are CSS libraries and frameworks
+1. SCSS/SASS
+2. Styled components
+3. Material UI
+4. Bootstrap
+5. Chakra UI
+6. Ant Design
+7. Tailwind CSS
+
+**Tailwind CSS** - It has class name for every CSS that you can apply. VSCode extension - Tailwind CSS IntelliSense
+Eg - flex,
+w-25 (gives width to that tag),
+m-4 (gives margin), mb-2 (margin bottom), mx-2 (margin to horizontal axis -left and right)
+p-4 (gives padding),
+If you have to give a hardcoded value, then you can create a dynamic class using []. Eg - w-[200px]
+
+VS Code Extension for Tailwind - Tailwind CSS IntelliSense
+
+Cons of Tailwind - Less readable, comes with a learning curve
+Pros of Tailwind - quick, light weight (When parcel makes a bundle of application, Tailwind includes only the CSS that is required on the webpage. If m-4 is used in multiple times, Tailwind includes just 1 m-4 class).
+
+Refer to Header tailwind for some responsiveness based on screen size.
+
+<b>NOTE</b> - If you have a very big form in your application, then consider using a library <b>Formik</b>
+
+<b>useRef</b> is used to hold a mutable value that persists across renders and doesn't require a rerender. It returns a plain JavaScript object with a single, mutable property named '.current'. The object returned is mutable.
+const ref = useRef(initialValue)
+The implementation can be found in Netflix-GPT Login page

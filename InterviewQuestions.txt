@@ -1,0 +1,16 @@
+1. What is JSX?
+JSX stands for Javascript XML which allows us have HTML code inside our JS and place them in DOM without using functions like createElement, appendChild.
+As stated in the official docs of React, JSX provides syntactic sugar for React.createElement( ) function.
+Note- We can create react applications without using JSX as well.
+
+2. What are React Hooks?
+React hooks are built-in functions which allow us to use component state and lifcycle fetaures from a functional component. React Hooks cannot be used in class components.
+Rules - a) Can be called only from functional components or custom hooks.
+b) They must be called at top level, not in nested functions or conditions or loops.
+
+3. What is useState?
+useState is React hook that lets function component store and manage state which persists across renders and triggers rerenders when updated.
+
+4. Lifting State Up - Lifting state up means moving shared state to the closest common parent component so that multiple child components can access and update the same data.
+
+5. ErrorBoundary - used to handle errors that occur during the render phase, in lifecycle methods, and in constructors of child components.
