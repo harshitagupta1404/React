@@ -32,14 +32,15 @@ const BodyComponent = () => {
         )
     }
     // Conditional Rendering
+    // TAILWIND CSS
     return listOfRestaurants.length===0 ? <Shimmer/> : (
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" value={searchText} onChange = {(e) => {
+            <div className="flex p-4">
+                <div className="mx-7">
+                    <input type="text" className="border border-black" value={searchText} onChange = {(e) => {
                         updateSearchText(e.target.value);
                     }}/>
-                    <button onClick={() => {
+                    <button className="bg-green-100 px-4 py-1 mx-4 cursor-pointer" onClick={() => {
                         console.log(`searchText = ${searchText}`);
                         const filteredRestaurants = listOfRestaurants.filter((res)=>{
                             // console.log(res.info.name);
@@ -52,14 +53,14 @@ const BodyComponent = () => {
                         setFilteredRestaurants(filteredRestaurants);
                     }}>Search</button>
                 </div>
-                <button className='filter-btn' onClick={()=>{
+                <button className="bg-green-100 px-4 py-1 mx-4 cursor-pointer" onClick={()=>{
                     console.log(listOfRestaurants);
                     const topRestaurants = listOfRestaurants.filter(topRes => topRes.info.rating.aggregate_rating>4)
                     console.log(topRestaurants);
                     setFilteredRestaurants(topRestaurants);
                 }}>Top Rated Restaurants</button>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {filteredRestaurants.map(restaurant => (
                      <Link key={restaurant.info.resId} to={"/restaurant/"+restaurant.info.resId}>
                         {restaurant.isPromoted ? <PromotedRestaurantCard resData={restaurant}/> : <RestaurantCard resData={restaurant}/>}
@@ -69,6 +70,44 @@ const BodyComponent = () => {
             </div>
         </div>
     )
+
+    // return listOfRestaurants.length===0 ? <Shimmer/> : (
+    //     <div className="body">
+    //         <div className="filter">
+    //             <div className="search">
+    //                 <input type="text" className="search-box" value={searchText} onChange = {(e) => {
+    //                     updateSearchText(e.target.value);
+    //                 }}/>
+    //                 <button onClick={() => {
+    //                     console.log(`searchText = ${searchText}`);
+    //                     const filteredRestaurants = listOfRestaurants.filter((res)=>{
+    //                         // console.log(res.info.name);
+    //                         console.log(res.info.name);
+    //                         console.log(res.info.name.includes(searchText));
+    //                         return res.info.name.toLowerCase().includes(searchText.toLowerCase())?res:undefined;
+                            
+    //                     })
+    //                     console.log(filteredRestaurants);
+    //                     setFilteredRestaurants(filteredRestaurants);
+    //                 }}>Search</button>
+    //             </div>
+    //             <button className='filter-btn' onClick={()=>{
+    //                 console.log(listOfRestaurants);
+    //                 const topRestaurants = listOfRestaurants.filter(topRes => topRes.info.rating.aggregate_rating>4)
+    //                 console.log(topRestaurants);
+    //                 setFilteredRestaurants(topRestaurants);
+    //             }}>Top Rated Restaurants</button>
+    //         </div>
+    //         <div className="res-container">
+    //             {filteredRestaurants.map(restaurant => (
+    //                  <Link key={restaurant.info.resId} to={"/restaurant/"+restaurant.info.resId}>
+    //                     {restaurant.isPromoted ? <PromotedRestaurantCard resData={restaurant}/> : <RestaurantCard resData={restaurant}/>}
+    //                 </Link>)
+    //             )}
+    //             {/* <RestaurantCard resData = {resList[1]}/> */}
+    //         </div>
+    //     </div>
+    // )
 }
 
 export default BodyComponent;

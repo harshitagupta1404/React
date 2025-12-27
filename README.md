@@ -43,7 +43,7 @@ EXPORTS - in 1 file we can have only 1 default export. If we want to export mult
 
  <b>useRouteError (provided by react-router-dom) </b>- gives more info about the error
  <b>Outlet </b>- used to display different child components based on the matched routes.
- **** Never use <a> tag in React. As it refreshes the entire page. 
+ **** Never use <a> anchor tag in React. As it refreshes the entire page. 
  Instead use <Link> component from react-router-dom  
  <b>useParams (provided by react-router-dom)</b> - allows us to access dynamic params in the URL. 
 
